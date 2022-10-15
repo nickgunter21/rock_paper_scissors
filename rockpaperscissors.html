@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice(){
+            const selections = ["rock", "paper", "scissors"]
+            const randomchoice = selections[Math.floor(Math.random()*selections.length)]
+            return randomchoice;
+        }
+        
+        
+        function getPlayerChoice(){
+            const asktheplayer = prompt("Rock Paper or Scissors?");
+            const playerchoice = asktheplayer.toLowerCase();
+            return playerchoice;
+        }
+        
+        
+        function playRound (playerchoice, randomchoice){
+            if (playerchoice == "rock" && randomchoice == "rock"){
+                return "TIE! Rock ties Rock"
+            } else if (playerchoice == "rock" && randomchoice == "scissors"){
+                return "YOU WIN! Rock beats Scissors!"
+            } else if (playerchoice == "rock" && randomchoice == "paper"){
+                return "YOU LOSE! Paper covers Rock!";
+            } else if (playerchoice == "scissors" && randomchoice == "scissors"){
+                return "Tie! You both chose scissors"
+            } else if (playerchoice == "scissors" && randomchoice == "paper"){
+                return "You Win! Scissors cuts Paper"
+            } else if (playerchoice == "scissors" && randomchoice == "rock"){
+                return "You lose. Rock beats Scissors"
+            } else if (playerchoice == "paper" && randomchoice == "paper"){
+                return "TIE! You both chose paper!"
+            } else if (playerchoice == "paper" && randomchoice == "rock"){
+                return "You Win! Paper covers rock"
+            } else if (playerchoice == "paper" && randomchoice == "scissors"){
+                return "You Lose! Scissors cuts Paper!"
+            }
+        }
+        
+
+        function game(){
+            for (let i = 0; i < 5; i++){
+                const playerchoice = getPlayerChoice();
+                const randomchoice = getComputerChoice();
+                console.log(playRound(playerchoice, randomchoice))
+            }
+        }
+
+        game()
+    </script>
+</body>
+</html>
